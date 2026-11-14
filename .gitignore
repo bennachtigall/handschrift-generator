@@ -5,3 +5,4 @@ dist.nosync
 referenz/
 *.goodnotes
 .DS_Store
+.claude/

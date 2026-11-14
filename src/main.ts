@@ -365,6 +365,7 @@ async function boot() {
   presets = await allPresets();
   textarea.value = text;
   sidebar = buildSidebar();
+  tpl.refresh();
   main.append(sidebar, stage, tpl.el);
   document.getElementById('app')!.append(topbar, main);
   if (matchMedia('(max-width: 900px)').matches) sidebar.classList.add('closed');

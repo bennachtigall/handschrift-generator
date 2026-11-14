@@ -43,7 +43,7 @@ class Field {
   private down(e: PointerEvent) {
     if (e.pointerType === 'touch') return; // Finger/Handballen ignorieren
     e.preventDefault();
-    this.pid = e.pointerId; this.canvas.setPointerCapture(e.pointerId);
+    this.pid = e.pointerId; try { this.canvas.setPointerCapture(e.pointerId); } catch { /* nicht aktiv */ }
     this.cur = [this.pt(e)]; this.strokes.push({ pts: this.cur }); this.draw();
   }
   private move(e: PointerEvent) {
@@ -207,6 +207,5 @@ export function createTemplateView(host: TplHost) {
   }
 
   function refresh() { if (!allKeys().includes(sel) && !pairKeys().includes(sel) && sel !== SPACE) sel = 'a'; select(sel); }
-  refresh();
   return { el: root, refresh };
 }
